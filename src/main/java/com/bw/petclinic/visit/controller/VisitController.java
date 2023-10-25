@@ -5,9 +5,7 @@ import com.bw.petclinic.visit.repository.VisitRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,6 +27,12 @@ public class VisitController {
     public List<Visit> getVisits(@RequestParam("petId") int petId) {
         LOG.info("GET /visits/pet with petId [" + petId + "]");
         return visitRepository.findByPetId(petId);
+    }
+
+    @PostMapping("/visits/visit")
+    public Visit saveVisit(@RequestBody Visit visit) {
+        LOG.info("POST /visits/visit with Visit [" + visit + "]");
+        return visitRepository.save(visit);
     }
 
 }
