@@ -17,7 +17,7 @@ public class Visit {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate visitDate;
 
-    @Column(name = "description")
+    @Column
     private String description;
 
     @Column(name = "pet_id")

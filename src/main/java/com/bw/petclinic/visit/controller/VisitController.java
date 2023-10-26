@@ -14,8 +14,12 @@ public class VisitController {
 
     private static final Logger LOG = LoggerFactory.getLogger(VisitController.class);
 
+    private final VisitRepository visitRepository;
+
     @Autowired
-    private VisitRepository visitRepository;
+    public VisitController(VisitRepository visitRepository) {
+        this.visitRepository = visitRepository;
+    }
 
     /**
      * Health check.
